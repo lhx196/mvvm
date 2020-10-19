@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" v-modal="info.name" />
+      <div>{{info.name}}</div>
+      <div>{{newName}}</div>
+      <div>{{info.age}}</div>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+			</ul>
+			<button v-on:click="change">更新</button>
+    </div>
+  </body>
+  <script src="./mvvm.js"></script>
+  <script>
+    let vm = new Vue({
+      el: "#app",
+      data: {
+        info: {
+          name: "Tom",
+          desc: "aabbcc",
+          age: 18,
+        },
+      },
+      method: {
+				change(){
+					this.info.name = 'hasChange'
+				}
+			},
+      computed: {
+        newName() {
+          return this.info.name + "-- computed";
+        },
+      },
+    });
+  </script>
+</html>
